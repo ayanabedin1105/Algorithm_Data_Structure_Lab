@@ -43,7 +43,8 @@ class Queue {
         } 
         // else {
         //     head.next.prev = null;
-        // }\
+        // }
+        System.out.println("The dequeue item is: " + head.data);
         head = head.next;
         
         return 0;
@@ -55,6 +56,14 @@ class Queue {
     }
   
     public boolean isMember(int x) {
+        
+        Node t = head;
+        while( t != t.next) {
+            if (t.data == x)
+                return true;
+            t = t.next;
+        }
+
         
         return false;
     }
@@ -88,8 +97,10 @@ class QueueTest {
 
     q.display();
 
-    System.out.println("\n is 12 in queue? " + q.isMember(12));
-	System.out.println("\n is 6 in queue? " + q.isMember(6));
+    System.out.println("is 12 in queue? " + q.isMember(12));
+	System.out.println("is 6 in queue? " + q.isMember(6));
+	System.out.println("is 17 in queue? " + q.isMember(17));
+    
     
     if( ! q.isEmpty())
         System.out.println("Deleting value from queue " + q.deQueue() + "\n");
@@ -98,9 +109,10 @@ class QueueTest {
 
     q.enQueue(27);
     q.display();
+    // q.deQueue();
 
 
-    System.out.printf("The dequeue item is: ", q.deQueue());
+    // System.out.printf("The dequeue item is: ", q.deQueue());
 
 
   }
